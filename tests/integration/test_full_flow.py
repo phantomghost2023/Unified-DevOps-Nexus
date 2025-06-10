@@ -1,21 +1,14 @@
 import pytest
-from pytest_asyncio import fixture
+import pytest_asyncio
 from core.ai.ai_optimizer import AIOptimizer
 from core.engine.unified_engine import UnifiedEngine
 from core.exceptions import ValidationError, OptimizationError
 import yaml
 from pathlib import Path
 
-@fixture
+@pytest.fixture
 def ai_optimizer():
-    return AIOptimizer(api_key="test-key")
-
-@fixture
-async def mock_cloud_clients(mocker):
-    return {
-        "aws": mocker.AsyncMock(),
-        "gcp": mocker.AsyncMock()
-    }
+    return AIOptimizer(api_key="test_key")
 
 @pytest.mark.asyncio
 @pytest.mark.integration
