@@ -3,14 +3,8 @@ import yaml
 import logging
 import asyncio  # Added for async tests
 from typing import Dict, Any
-from src.core.ai.ai_optimizer import AIOptimizer
-from src.core.engine.unified_engine import UnifiedEngine
-from src.core.exceptions import ValidationError, OptimizationError
-from pathlib import Path
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-from performance.helpers import generate_test_config
+from core.ai.ai_optimizer import AIOptimizer
+from tests.performance.helpers import generate_test_config
 
 logger = logging.getLogger(__name__)
 
@@ -211,11 +205,11 @@ def test_timestamp_behavior():
     pass
 
 import pytest
-from src.core.ai.ai_optimizer import AIOptimizer
+from core.ai.ai_optimizer import AIOptimizer
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-from performance.helpers import generate_test_config
+from tests.performance.helpers import generate_test_config
 
 @pytest.mark.parametrize("config_size", [1 * 1024, 10 * 1024, 100 * 1024])
 def test_config_size_scaling(benchmark, config_size):

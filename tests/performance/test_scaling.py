@@ -2,7 +2,7 @@ import pytest
 import yaml
 import logging
 from pathlib import Path
-from src.core.ai.ai_optimizer import AIOptimizer
+from core.ai.ai_optimizer import AIOptimizer
 from src.core.engine.unified_engine import UnifiedEngine
 from src.core.exceptions import OptimizationError, ValidationError
 

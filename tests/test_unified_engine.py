@@ -4,7 +4,7 @@ import logging
 import asyncio
 from unittest.mock import patch, MagicMock
 from pathlib import Path
-from src.core.engine.unified_engine import UnifiedEngine
+from core.engine.unified_engine import UnifiedEngine
 from src.core.exceptions import ValidationError
 
 @pytest.fixture
@@ -230,7 +230,7 @@ async def test_deploy_results_coverage(test_config, mocker):
 
 def test_load_config_file_not_found(tmp_path):
     """Covers FileNotFoundError branch in _load_config (line 35)."""
-    from src.core.engine.unified_engine import UnifiedEngine
+    from core.engine.unified_engine import UnifiedEngine
     missing_path = tmp_path / "missing.yaml"
     try:
         UnifiedEngine(str(missing_path))
@@ -241,27 +241,27 @@ def test_load_config_invalid_yaml(tmp_path):
     """Covers Exception branch in _load_config (invalid YAML)"""
     bad = tmp_path / "bad.yaml"
     bad.write_text("{bad: yaml: content")
-    from src.core.engine.unified_engine import UnifiedEngine
+    from core.engine.unified_engine import UnifiedEngine
     from src.core.exceptions import ValidationError
     with pytest.raises(ValidationError, match="Failed to load configuration"):
         UnifiedEngine(str(bad))
 
 def test_validate_config_providers_not_dict():
-    from src.core.engine.unified_engine import UnifiedEngine
+    from core.engine.unified_engine import UnifiedEngine
     engine = UnifiedEngine.__new__(UnifiedEngine)
     config = {"version": "1.0", "metadata": {}, "providers": []}
     with pytest.raises(ValidationError, match="Providers must be a dictionary"):
         engine.validate_config(config)
 
 def test_validate_config_provider_not_dict():
-    from src.core.engine.unified_engine import UnifiedEngine
+    from core.engine.unified_engine import UnifiedEngine
     engine = UnifiedEngine.__new__(UnifiedEngine)
     config = {"version": "1.0", "metadata": {}, "providers": {"aws": 123}}
     with pytest.raises(ValidationError, match="Provider aws configuration must be a dictionary"):
         engine.validate_config(config)
 
 def test_validate_config_provider_missing_enabled():
-    from src.core.engine.unified_engine import UnifiedEngine
+    from core.engine.unified_engine import UnifiedEngine
     engine = UnifiedEngine.__new__(UnifiedEngine)
     config = {"version": "1.0", "metadata": {}, "providers": {"aws": {}}}
     with pytest.raises(ValidationError, match="Provider aws must specify enabled status"):
@@ -270,7 +270,7 @@ def test_validate_config_provider_missing_enabled():
 @pytest.mark.asyncio
 async def test_deploy_error_logging(mocker, test_config):
     """Covers error logging in deploy (provider deploy fails)"""
-    from src.core.engine.unified_engine import UnifiedEngine
+    from core.engine.unified_engine import UnifiedEngine
     engine = UnifiedEngine(test_config)
     engine.initialize_providers()
     mock_provider = mocker.AsyncMock()
@@ -284,7 +284,7 @@ async def test_deploy_error_logging(mocker, test_config):
 @pytest.mark.asyncio
 async def test__deploy_provider_error_logging(mocker, test_config):
     """Covers error logging in _deploy_provider (provider.deploy fails)"""
-    from src.core.engine.unified_engine import UnifiedEngine
+    from core.engine.unified_engine import UnifiedEngine
     engine = UnifiedEngine(test_config)
     engine.initialize_providers()
     mock_provider = mocker.AsyncMock()
@@ -298,7 +298,7 @@ async def test__deploy_provider_error_logging(mocker, test_config):
 @pytest.mark.asyncio
 async def test_optimize_configuration_async_stub(mocker, test_config):
     """Covers optimize_configuration_async stub for coverage"""
-    from src.core.engine.unified_engine import UnifiedEngine
+    from core.engine.unified_engine import UnifiedEngine
     engine = UnifiedEngine(test_config)
     mocker.patch.object(engine, 'optimize_configuration', return_value={"ok": True})
     result = await engine.optimize_configuration_async({"foo": "bar"})
@@ -307,7 +307,7 @@ async def test_optimize_configuration_async_stub(mocker, test_config):
 @pytest.mark.asyncio
 async def test__deploy_provider_fallback_and_error_logging(mocker, test_config):
     """Covers fallback static response and error logging in _deploy_provider."""
-    from src.core.engine.unified_engine import UnifiedEngine
+    from core.engine.unified_engine import UnifiedEngine
     engine = UnifiedEngine(test_config)
     engine.initialize_providers()
     # Fallback: provider object without deploy method
@@ -323,7 +323,7 @@ async def test__deploy_provider_fallback_and_error_logging(mocker, test_config):
 @pytest.mark.skip(reason="Cannot cover logger.error in initialize_providers error branch due to Python control flow; exception in .get() prevents logger call.")
 def test_initialize_providers_error_logging(mocker, test_config):
     """Uncoverable: logger.error in initialize_providers cannot be triggered if .get() raises, due to Python control flow."""
-    from src.core.engine.unified_engine import UnifiedEngine
+    from core.engine.unified_engine import UnifiedEngine
     engine = UnifiedEngine(test_config)
     class BadConfig(dict):
         def get(self, *a, **kw):

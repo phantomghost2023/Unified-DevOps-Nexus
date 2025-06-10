@@ -2,7 +2,7 @@ import pytest
 import yaml
 from typing import Dict, Any
 from pathlib import Path
-from src.core.ai.ai_optimizer import AIOptimizer
+from core.ai.ai_optimizer import AIOptimizer
 from src.core.engine.unified_engine import UnifiedEngine
 import openai
 from src.core.exceptions import ValidationError, OptimizationError

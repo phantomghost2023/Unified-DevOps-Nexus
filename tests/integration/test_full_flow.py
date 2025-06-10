@@ -1,7 +1,7 @@
 import pytest
 from pytest_asyncio import fixture
-from src.core.ai.ai_optimizer import AIOptimizer
-from src.core.engine.unified_engine import UnifiedEngine
+from core.ai.ai_optimizer import AIOptimizer
+from core.engine.unified_engine import UnifiedEngine
 import yaml
 from pathlib import Path
 
