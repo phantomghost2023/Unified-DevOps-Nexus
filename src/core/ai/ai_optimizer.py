@@ -13,8 +13,19 @@ class AIOptimizer:
         self.client = None
         self.logger = logging.getLogger(__name__)
 
+    def set_client(self, client=None):
+        """Set the OpenAI client, or initialize if not provided."""
+        if client is not None:
+            self.client = client
+        else:
+            self.client = AsyncOpenAI(api_key=self.api_key)
+
     async def generate_infrastructure(self, description: str) -> Dict[str, Any]:
         """Generate infrastructure code from natural language"""
+        if self.client is None:
+            self.set_client()
+        if self.client is None:
+            raise RuntimeError("OpenAI client is not initialized.")
         try:
             response = await self.client.chat.completions.create(
                 model="gpt-4",

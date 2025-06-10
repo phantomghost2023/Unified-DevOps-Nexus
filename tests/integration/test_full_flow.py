@@ -5,10 +5,18 @@ from core.engine.unified_engine import UnifiedEngine
 from core.exceptions import ValidationError, OptimizationError
 import yaml
 from pathlib import Path
+from unittest.mock import MagicMock, AsyncMock
+import logging
 
 @pytest.fixture
 def ai_optimizer():
     return AIOptimizer(api_key="test_key")
+
+@pytest.fixture
+def mock_cloud_clients():
+    """Fixture that provides mock cloud clients for testing."""
+    aws_mock = MagicMock()
+    return {"aws": aws_mock}
 
 @pytest.mark.asyncio
 @pytest.mark.integration
@@ -49,7 +57,7 @@ async def test_end_to_end_deployment(mock_cloud_clients, ai_optimizer, tmp_path)
     # Initialize providers with mocks
     engine.initialize_providers()
     engine.providers["aws"] = mock_cloud_clients["aws"]
-    mock_cloud_clients["aws"].deploy.return_value = {"status": "success"}
+    mock_cloud_clients["aws"].deploy = AsyncMock(return_value={"status": "success"})
 
     result = await engine.deploy()
 
