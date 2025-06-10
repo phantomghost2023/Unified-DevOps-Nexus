@@ -5,7 +5,7 @@ from typing import Dict, Any
 from core.ai.ai_optimizer import AIOptimizer
 from core.engine.unified_engine import UnifiedEngine
 from core.exceptions import ValidationError
-from .helpers import generate_test_config
+from tests.performance.helpers import generate_test_config
 
 @pytest.fixture
 def ai_optimizer():
