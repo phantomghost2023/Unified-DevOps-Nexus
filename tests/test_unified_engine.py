@@ -243,7 +243,7 @@ def test_load_config_invalid_yaml(tmp_path):
     bad = tmp_path / "bad.yaml"
     bad.write_text("{bad: yaml: content")
     from core.engine.unified_engine import UnifiedEngine
-    from src.core.exceptions import ValidationError
+    from core.core.exceptions import ValidationError
     with pytest.raises(ValidationError, match="Failed to load configuration"):
         UnifiedEngine(str(bad))
 

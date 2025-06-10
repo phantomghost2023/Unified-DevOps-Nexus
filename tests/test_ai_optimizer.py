@@ -485,7 +485,7 @@ async def test_optimize_configuration_async(ai_optimizer):
     assert result["providers"]["aws"]["services"][0]["resources"][0]["specs"]["nodeType"] == "t3.medium"
 
 def test_process_configuration_network_error(mocker):
-    from src.core.ai.ai_optimizer import AIOptimizer
+    from core.core.ai.ai_optimizer import AIOptimizer
     optimizer = AIOptimizer("fake-key")
     # Provide a valid config to get past validation
     valid_config = {
