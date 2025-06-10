@@ -1,8 +1,5 @@
 import pytest
 import yaml
-import logging
-import asyncio  # Added for async tests
-from typing import Dict, Any
 from core.ai.ai_optimizer import AIOptimizer
 from core.engine.unified_engine import UnifiedEngine
 from core.exceptions import ValidationError, OptimizationError

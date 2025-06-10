@@ -1,10 +1,10 @@
 import pytest
 import yaml
-import logging
+from typing import Dict, Any
 from pathlib import Path
 from core.ai.ai_optimizer import AIOptimizer
 from core.engine.unified_engine import UnifiedEngine
-from core.exceptions import OptimizationError, ValidationError
+from core.exceptions import ValidationError, OptimizationError
 
 @pytest.fixture
 def test_config(tmp_path):

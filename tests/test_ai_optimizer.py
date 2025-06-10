@@ -64,14 +64,7 @@ def test_optimize_configuration(ai_optimizer):
         "metadata": {"project": "test", "environment": "dev"},
         "providers": {
             "aws": {
-                "services": [{
-                    "type": "compute",
-                    "resources": [{
-                        "specs": {
-                            "nodeType": "t3.large"
-                        }
-                    }]
-                }]
+                "services": [{}]
             }
         }
     }
@@ -171,10 +164,7 @@ async def test_optimize_configuration_invalid_structure(ai_optimizer):
         "metadata": {"project": "test", "environment": "dev"},
         "providers": {
             "aws": {
-                "services": [{
-                    "type": "compute",
-                    "resources": [{}]  # Missing specs
-                }]
+                "services": [{}]  # Missing specs
             }
         }
     }
@@ -273,14 +263,7 @@ async def test_end_to_end_deployment(mock_aws, mock_gcp, ai_optimizer, tmp_path)
         "providers": {
             "aws": {
                 "enabled": True,
-                "services": [{
-                    "type": "compute",
-                    "resources": [{
-                        "specs": {
-                            "nodeType": "t3.large"
-                        }
-                    }]
-                }]
+                "services": [{}]
             },
             "gcp": {
                 "enabled": True
