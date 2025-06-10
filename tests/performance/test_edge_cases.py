@@ -4,6 +4,9 @@ import logging
 import asyncio  # Added for async tests
 from typing import Dict, Any
 from core.ai.ai_optimizer import AIOptimizer
+from core.engine.unified_engine import UnifiedEngine
+from core.exceptions import ValidationError
+from pathlib import Path
 from tests.performance.helpers import generate_test_config
 
 logger = logging.getLogger(__name__)

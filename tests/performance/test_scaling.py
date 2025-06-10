@@ -3,7 +3,7 @@ import yaml
 import logging
 from pathlib import Path
 from core.ai.ai_optimizer import AIOptimizer
-from src.core.engine.unified_engine import UnifiedEngine
+from core.engine.unified_engine import UnifiedEngine
 from src.core.exceptions import OptimizationError, ValidationError
 
 @pytest.fixture

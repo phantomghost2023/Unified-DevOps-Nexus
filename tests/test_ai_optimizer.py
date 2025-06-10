@@ -3,9 +3,7 @@ import yaml
 from typing import Dict, Any
 from pathlib import Path
 from core.ai.ai_optimizer import AIOptimizer
-from src.core.engine.unified_engine import UnifiedEngine
-import openai
-from src.core.exceptions import ValidationError, OptimizationError
+from core.exceptions import ValidationError, OptimizationError
 
 @pytest.fixture
 def ai_optimizer():
