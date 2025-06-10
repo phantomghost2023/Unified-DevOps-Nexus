@@ -1,0 +1,14 @@
+setup.py
+src/__init__.py
+src/core/__init__.py
+src/core/ai/__init__.py
+src/core/ai/ai_optimizer.py
+src/core/engine/__init__.py
+src/core/engine/unified_engine.py
+tests/test_ai_optimizer.py
+tests/test_unified_engine.py
+unified_devops_nexus.egg-info/PKG-INFO
+unified_devops_nexus.egg-info/SOURCES.txt
+unified_devops_nexus.egg-info/dependency_links.txt
+unified_devops_nexus.egg-info/requires.txt
+unified_devops_nexus.egg-info/top_level.txt

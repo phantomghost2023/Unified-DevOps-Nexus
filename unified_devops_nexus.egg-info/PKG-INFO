@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: unified-devops-nexus
+Version: 0.1.0
+Summary: Unified DevOps Infrastructure as Code Framework
+Author: DevOps Team
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: openai>=1.0.0
+Requires-Dist: pytest>=8.0.0
+Requires-Dist: pytest-cov>=6.0.0
+Requires-Dist: pytest-asyncio>=0.23.0
+Requires-Dist: pytest-mock>=3.14.0
+Requires-Dist: typing-extensions>=4.0.0
+Dynamic: author
+Dynamic: classifier
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

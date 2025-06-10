@@ -1,0 +1,34 @@
+version: "1.0"
+metadata:
+  name: unified-devops-template
+  description: Base infrastructure template
+  
+providers:
+  aws:
+    enabled: true
+    regions:
+      - us-east-1
+    services:
+      - type: compute
+        resources:
+          - name: api-cluster
+            kind: eks
+            specs:
+              nodeType: t3.medium
+              minNodes: 2
+              maxNodes: 5
+              
+  gcp:
+    enabled: false
+    
+security:
+  compliance:
+    - standard: SOC2
+    - standard: HIPAA
+  
+monitoring:
+  enabled: true
+  metrics:
+    - cpu
+    - memory
+    - network

@@ -1,0 +1,64 @@
+import pytest
+from pytest_asyncio import fixture
+from src.core.ai.ai_optimizer import AIOptimizer
+from src.core.engine.unified_engine import UnifiedEngine
+import yaml
+from pathlib import Path
+
+@fixture
+def ai_optimizer():
+    return AIOptimizer(api_key="test-key")
+
+@fixture
+async def mock_cloud_clients(mocker):
+    return {
+        "aws": mocker.AsyncMock(),
+        "gcp": mocker.AsyncMock()
+    }
+
+@pytest.mark.asyncio
+@pytest.mark.integration
+async def test_end_to_end_deployment(mock_cloud_clients, ai_optimizer, tmp_path):
+    """Test full deployment flow with AI optimization"""
+    # Create config file
+    test_config = {
+        "version": "1.0",
+        "metadata": {
+            "project": "test",
+            "environment": "dev"
+        },
+        "providers": {
+            "aws": {
+                "enabled": True,
+                "services": [{
+                    "type": "compute",
+                    "resources": [{
+                        "specs": {
+                            "nodeType": "t3.large"
+                        }
+                    }]
+                }]
+            }
+        }
+    }
+
+    config_path = tmp_path / "test_config.yaml"
+    with open(config_path, 'w') as f:
+        yaml.safe_dump(test_config, f)
+
+    # 1. AI Optimization
+    optimized_config = ai_optimizer.optimize_configuration(test_config)
+
+    # 2. Engine Deployment
+    engine = UnifiedEngine(str(config_path))
+    
+    # Initialize providers with mocks
+    engine.initialize_providers()
+    engine.providers["aws"] = mock_cloud_clients["aws"]
+    mock_cloud_clients["aws"].deploy.return_value = {"status": "success"}
+
+    result = await engine.deploy()
+
+    # Verify results
+    assert mock_cloud_clients["aws"].deploy.called
+    assert result["aws"]["status"] == "success"
