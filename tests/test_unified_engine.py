@@ -6,7 +6,7 @@ from unittest.mock import patch, MagicMock
 from pathlib import Path
 from core.ai.ai_optimizer import AIOptimizer
 from core.engine.unified_engine import UnifiedEngine
-from core.exceptions import ValidationError
+from core.exceptions import ValidationError, OptimizationError
 
 @pytest.fixture
 def test_config(tmp_path):

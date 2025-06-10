@@ -2,6 +2,7 @@ import pytest
 from pytest_asyncio import fixture
 from core.ai.ai_optimizer import AIOptimizer
 from core.engine.unified_engine import UnifiedEngine
+from core.exceptions import ValidationError, OptimizationError
 import yaml
 from pathlib import Path
 
