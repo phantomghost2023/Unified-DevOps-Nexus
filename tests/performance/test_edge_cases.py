@@ -4,7 +4,11 @@ from core.ai.ai_optimizer import AIOptimizer
 from core.engine.unified_engine import UnifiedEngine
 from core.exceptions import ValidationError, OptimizationError
 from pathlib import Path
-from tests.performance.helpers import generate_test_config
+from .helpers import generate_test_config
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
 logger = logging.getLogger(__name__)
 
@@ -203,13 +207,6 @@ def test_optimization_error_handling(ai_optimizer):
 
 def test_timestamp_behavior():
     pass
-
-import pytest
-from core.ai.ai_optimizer import AIOptimizer
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-from tests.performance.helpers import generate_test_config
 
 @pytest.mark.parametrize("config_size", [1 * 1024, 10 * 1024, 100 * 1024])
 def test_config_size_scaling(benchmark, config_size):
