@@ -1,0 +1,3 @@
+"""
+Azure provider plugins package
+"""

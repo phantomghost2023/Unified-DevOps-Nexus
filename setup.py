@@ -3,16 +3,13 @@ from setuptools import setup, find_packages
 setup(
     name="unified-devops-nexus",
     version="0.1.0",
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    packages=find_packages(),
     install_requires=[
-        "pyyaml>=6.0",
-        "openai>=1.0.0",
-        "pytest>=8.0.0",
-        "pytest-cov>=6.0.0",
-        "pytest-asyncio>=0.23.0",
-        "pytest-mock>=3.14.0",
-        "typing-extensions>=4.0.0"
+        "azure-identity>=1.12.0",
+        "azure-mgmt-resource>=23.0.1",
+        "azure-mgmt-monitor>=5.0.0",
+        "pytest>=7.4.0",
+        "python-dotenv>=1.0.0",
     ],
     python_requires=">=3.8",
     description="Unified DevOps Infrastructure as Code Framework",

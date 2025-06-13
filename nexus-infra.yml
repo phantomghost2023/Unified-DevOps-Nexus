@@ -1,0 +1,18 @@
+version: '1.0'
+metadata:
+  environment: dev
+providers:
+  aws:
+    enabled: true
+    regions:
+    - us-east-1
+    services:
+    - type: k8s
+      resources:
+      - kind: eks
+        specs:
+          nodeType: t3.medium
+          minNodes: 2
+          maxNodes: 5
+compliance:
+  auto_remediate: true

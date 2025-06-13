@@ -1,0 +1,86 @@
+2025-06-12 20:41:53 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:53 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:53 [ERROR] AI generation failed: AsyncClient.__init__() got an unexpected keyword argument 'proxies' (ai_optimizer.py:101)
+2025-06-12 20:41:53 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<AsyncClient.aclose() done, defined at C:\Users\Bainbeats\Desktop\Unified DevOps Nexus\venv\Lib\site-packages\httpx\_client.py:1978> exception=AttributeError("'AsyncHttpxClientWrapper' object has no attribute '_state'")> (base_events.py:1865)
+Traceback (most recent call last):
+  File "C:\Users\Bainbeats\Desktop\Unified DevOps Nexus\venv\Lib\site-packages\httpx\_client.py", line 1982, in aclose
+    if self._state != ClientState.CLOSED:
+       ^^^^^^^^^^^
+AttributeError: 'AsyncHttpxClientWrapper' object has no attribute '_state'
+2025-06-12 20:41:53 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:53 [ERROR] AI generation failed: AsyncClient.__init__() got an unexpected keyword argument 'proxies' (ai_optimizer.py:101)
+2025-06-12 20:41:53 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-5' coro=<AsyncClient.aclose() done, defined at C:\Users\Bainbeats\Desktop\Unified DevOps Nexus\venv\Lib\site-packages\httpx\_client.py:1978> exception=AttributeError("'AsyncHttpxClientWrapper' object has no attribute '_state'")> (base_events.py:1865)
+Traceback (most recent call last):
+  File "C:\Users\Bainbeats\Desktop\Unified DevOps Nexus\venv\Lib\site-packages\httpx\_client.py", line 1982, in aclose
+    if self._state != ClientState.CLOSED:
+       ^^^^^^^^^^^
+AttributeError: 'AsyncHttpxClientWrapper' object has no attribute '_state'
+2025-06-12 20:41:53 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:53 [ERROR] AI generation failed: AsyncClient.__init__() got an unexpected keyword argument 'proxies' (ai_optimizer.py:101)
+2025-06-12 20:41:53 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<AsyncClient.aclose() done, defined at C:\Users\Bainbeats\Desktop\Unified DevOps Nexus\venv\Lib\site-packages\httpx\_client.py:1978> exception=AttributeError("'AsyncHttpxClientWrapper' object has no attribute '_state'")> (base_events.py:1865)
+Traceback (most recent call last):
+  File "C:\Users\Bainbeats\Desktop\Unified DevOps Nexus\venv\Lib\site-packages\httpx\_client.py", line 1982, in aclose
+    if self._state != ClientState.CLOSED:
+       ^^^^^^^^^^^
+AttributeError: 'AsyncHttpxClientWrapper' object has no attribute '_state'
+2025-06-12 20:41:53 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:53 [ERROR] AI generation failed: AsyncClient.__init__() got an unexpected keyword argument 'proxies' (ai_optimizer.py:101)
+2025-06-12 20:41:53 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<AsyncClient.aclose() done, defined at C:\Users\Bainbeats\Desktop\Unified DevOps Nexus\venv\Lib\site-packages\httpx\_client.py:1978> exception=AttributeError("'AsyncHttpxClientWrapper' object has no attribute '_state'")> (base_events.py:1865)
+Traceback (most recent call last):
+  File "C:\Users\Bainbeats\Desktop\Unified DevOps Nexus\venv\Lib\site-packages\httpx\_client.py", line 1982, in aclose
+    if self._state != ClientState.CLOSED:
+       ^^^^^^^^^^^
+AttributeError: 'AsyncHttpxClientWrapper' object has no attribute '_state'
+2025-06-12 20:41:53 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:53 [ERROR] Error processing configuration: 'NoneType' object has no attribute 'get' (ai_optimizer.py:1339)
+2025-06-12 20:41:53 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:53 [ERROR] Unexpected error parsing OpenAI response: Unexpected error (ai_optimizer.py:1360)
+2025-06-12 20:41:53 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:53 [ERROR] Unexpected error parsing OpenAI response: Invalid response format: no choices available (ai_optimizer.py:1360)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [ERROR] AI generation failed: AsyncClient.__init__() got an unexpected keyword argument 'proxies' (ai_optimizer.py:101)
+2025-06-12 20:41:55 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-22' coro=<AsyncClient.aclose() done, defined at C:\Users\Bainbeats\Desktop\Unified DevOps Nexus\venv\Lib\site-packages\httpx\_client.py:1978> exception=AttributeError("'AsyncHttpxClientWrapper' object has no attribute '_state'")> (base_events.py:1865)
+Traceback (most recent call last):
+  File "C:\Users\Bainbeats\Desktop\Unified DevOps Nexus\venv\Lib\site-packages\httpx\_client.py", line 1982, in aclose
+    if self._state != ClientState.CLOSED:
+       ^^^^^^^^^^^
+AttributeError: 'AsyncHttpxClientWrapper' object has no attribute '_state'
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [ERROR] Failed to parse OpenAI response: sequence entries are not allowed here
+  in "<unicode string>", line 1, column 23:
+    invalid yaml content: - 
+                          ^ (ai_optimizer.py:1356)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [ERROR] Unexpected error parsing OpenAI response: Invalid YAML: root element must be a mapping (ai_optimizer.py:1360)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [INFO] Performing predictive analytics for resource optimization... (ai_optimizer.py:146)
+2025-06-12 20:41:55 [INFO] Predicting new CPU for web_server: Current 2 vCPU -> Predicted 0.81 (ai_optimizer.py:178)
+2025-06-12 20:41:55 [INFO] Predicting new Memory for web_server: Current 4 GiB -> Predicted 4.43 (ai_optimizer.py:184)
+2025-06-12 20:41:55 [INFO] Predictive analytics completed. (ai_optimizer.py:186)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [DEBUG] This service is instrumented using OpenTelemetry. OpenTelemetry or one of its components could not be imported; please add compatible versions of opentelemetry-api and opentelemetry-instrumentation packages in order to get Storage Tracing data. (_opentelemetry_tracing.py:42)
+2025-06-12 20:41:55 [ERROR] Failed to load provider gcp: Missing required configuration fields: project_id, region (unified_engine.py:87)
+2025-06-12 20:41:55 [ERROR] Failed to load provider gcp: Missing required configuration fields: project_id, region (unified_engine.py:87)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [ERROR] AI generation failed: API Error (ai_optimizer.py:101)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [ERROR] Unexpected error parsing OpenAI response: Invalid response format: no choices available (ai_optimizer.py:1360)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)
+2025-06-12 20:41:55 [ERROR] Failed to parse OpenAI response: while parsing a flow mapping
+  in "<unicode string>", line 1, column 1:
+    {invalid: yaml
+    ^
+expected ',' or '}', but got '<stream end>'
+  in "<unicode string>", line 1, column 15:
+    {invalid: yaml
+                  ^ (ai_optimizer.py:1356)
+2025-06-12 20:41:55 [DEBUG] Using proactor: IocpProactor (proactor_events.py:631)

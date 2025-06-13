@@ -1,0 +1,415 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.3, pytest-8.4.0, pluggy-1.6.0 -- C:\Users\Bainbeats\Desktop\Unified DevOps Nexus\venv\Scripts\python.exe
+cachedir: .pytest_cache
+benchmark: 5.1.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: C:\Users\Bainbeats\Desktop\Unified DevOps Nexus
+configfile: pytest.ini
+plugins: anyio-4.9.0, asyncio-1.0.0, benchmark-5.1.0, cov-6.1.1, mock-3.14.1
+asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 10 items
+
+src/core/plugins/tests/test_azure_provider.py::test_azure_provider_initialization ERROR [ 10%]
+src/core/plugins/tests/test_azure_provider.py::test_validate_credentials ERROR [ 20%]
+src/core/plugins/tests/test_azure_provider.py::test_validate_credentials_failure ERROR [ 30%]
+src/core/plugins/tests/test_azure_provider.py::test_list_resources ERROR [ 40%]
+src/core/plugins/tests/test_azure_provider.py::test_get_resource ERROR   [ 50%]
+src/core/plugins/tests/test_azure_provider.py::test_create_resource ERROR [ 60%]
+src/core/plugins/tests/test_azure_provider.py::test_update_resource ERROR [ 70%]
+src/core/plugins/tests/test_azure_provider.py::test_delete_resource ERROR [ 80%]
+src/core/plugins/tests/test_azure_provider.py::test_get_resource_metrics ERROR [ 90%]
+src/core/plugins/tests/test_azure_provider.py::test_get_resource_logs ERROR [100%]
+
+=================================== ERRORS ====================================
+____________ ERROR at setup of test_azure_provider_initialization _____________
+
+mock_config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    @pytest.fixture
+    def azure_provider(mock_config):
+        """Create an AzureProvider instance for testing."""
+>       return AzureProvider(config=mock_config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\core\plugins\tests\test_azure_provider.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\core\plugins\azure_provider.py:19: in __init__
+    self._validate_config(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.core.plugins.azure_provider.AzureProvider object at 0x00000204188C1FD0>
+config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    def _validate_config(self, config: dict) -> None:
+        """Validate the configuration dictionary.
+    
+        Args:
+            config (dict): Configuration to validate
+    
+        Raises:
+            ValueError: If configuration is invalid
+        """
+        if not isinstance(config, dict):
+            raise ValueError("Config must be a dictionary")
+    
+        if not config.get("azure_credentials"):
+>           raise ValueError("Missing Azure credentials")
+E           ValueError: Missing Azure credentials
+
+src\core\plugins\azure_provider.py:36: ValueError
+_________________ ERROR at setup of test_validate_credentials _________________
+
+mock_config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    @pytest.fixture
+    def azure_provider(mock_config):
+        """Create an AzureProvider instance for testing."""
+>       return AzureProvider(config=mock_config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\core\plugins\tests\test_azure_provider.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\core\plugins\azure_provider.py:19: in __init__
+    self._validate_config(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.core.plugins.azure_provider.AzureProvider object at 0x0000020418994A50>
+config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    def _validate_config(self, config: dict) -> None:
+        """Validate the configuration dictionary.
+    
+        Args:
+            config (dict): Configuration to validate
+    
+        Raises:
+            ValueError: If configuration is invalid
+        """
+        if not isinstance(config, dict):
+            raise ValueError("Config must be a dictionary")
+    
+        if not config.get("azure_credentials"):
+>           raise ValueError("Missing Azure credentials")
+E           ValueError: Missing Azure credentials
+
+src\core\plugins\azure_provider.py:36: ValueError
+_____________ ERROR at setup of test_validate_credentials_failure _____________
+
+mock_config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    @pytest.fixture
+    def azure_provider(mock_config):
+        """Create an AzureProvider instance for testing."""
+>       return AzureProvider(config=mock_config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\core\plugins\tests\test_azure_provider.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\core\plugins\azure_provider.py:19: in __init__
+    self._validate_config(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.core.plugins.azure_provider.AzureProvider object at 0x0000020418995310>
+config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    def _validate_config(self, config: dict) -> None:
+        """Validate the configuration dictionary.
+    
+        Args:
+            config (dict): Configuration to validate
+    
+        Raises:
+            ValueError: If configuration is invalid
+        """
+        if not isinstance(config, dict):
+            raise ValueError("Config must be a dictionary")
+    
+        if not config.get("azure_credentials"):
+>           raise ValueError("Missing Azure credentials")
+E           ValueError: Missing Azure credentials
+
+src\core\plugins\azure_provider.py:36: ValueError
+____________________ ERROR at setup of test_list_resources ____________________
+
+mock_config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    @pytest.fixture
+    def azure_provider(mock_config):
+        """Create an AzureProvider instance for testing."""
+>       return AzureProvider(config=mock_config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\core\plugins\tests\test_azure_provider.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\core\plugins\azure_provider.py:19: in __init__
+    self._validate_config(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.core.plugins.azure_provider.AzureProvider object at 0x000002041894A8B0>
+config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    def _validate_config(self, config: dict) -> None:
+        """Validate the configuration dictionary.
+    
+        Args:
+            config (dict): Configuration to validate
+    
+        Raises:
+            ValueError: If configuration is invalid
+        """
+        if not isinstance(config, dict):
+            raise ValueError("Config must be a dictionary")
+    
+        if not config.get("azure_credentials"):
+>           raise ValueError("Missing Azure credentials")
+E           ValueError: Missing Azure credentials
+
+src\core\plugins\azure_provider.py:36: ValueError
+_____________________ ERROR at setup of test_get_resource _____________________
+
+mock_config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    @pytest.fixture
+    def azure_provider(mock_config):
+        """Create an AzureProvider instance for testing."""
+>       return AzureProvider(config=mock_config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\core\plugins\tests\test_azure_provider.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\core\plugins\azure_provider.py:19: in __init__
+    self._validate_config(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.core.plugins.azure_provider.AzureProvider object at 0x000002041894AEA0>
+config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    def _validate_config(self, config: dict) -> None:
+        """Validate the configuration dictionary.
+    
+        Args:
+            config (dict): Configuration to validate
+    
+        Raises:
+            ValueError: If configuration is invalid
+        """
+        if not isinstance(config, dict):
+            raise ValueError("Config must be a dictionary")
+    
+        if not config.get("azure_credentials"):
+>           raise ValueError("Missing Azure credentials")
+E           ValueError: Missing Azure credentials
+
+src\core\plugins\azure_provider.py:36: ValueError
+___________________ ERROR at setup of test_create_resource ____________________
+
+mock_config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    @pytest.fixture
+    def azure_provider(mock_config):
+        """Create an AzureProvider instance for testing."""
+>       return AzureProvider(config=mock_config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\core\plugins\tests\test_azure_provider.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\core\plugins\azure_provider.py:19: in __init__
+    self._validate_config(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.core.plugins.azure_provider.AzureProvider object at 0x0000020418951130>
+config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    def _validate_config(self, config: dict) -> None:
+        """Validate the configuration dictionary.
+    
+        Args:
+            config (dict): Configuration to validate
+    
+        Raises:
+            ValueError: If configuration is invalid
+        """
+        if not isinstance(config, dict):
+            raise ValueError("Config must be a dictionary")
+    
+        if not config.get("azure_credentials"):
+>           raise ValueError("Missing Azure credentials")
+E           ValueError: Missing Azure credentials
+
+src\core\plugins\azure_provider.py:36: ValueError
+___________________ ERROR at setup of test_update_resource ____________________
+
+mock_config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    @pytest.fixture
+    def azure_provider(mock_config):
+        """Create an AzureProvider instance for testing."""
+>       return AzureProvider(config=mock_config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\core\plugins\tests\test_azure_provider.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\core\plugins\azure_provider.py:19: in __init__
+    self._validate_config(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.core.plugins.azure_provider.AzureProvider object at 0x0000020418993460>
+config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    def _validate_config(self, config: dict) -> None:
+        """Validate the configuration dictionary.
+    
+        Args:
+            config (dict): Configuration to validate
+    
+        Raises:
+            ValueError: If configuration is invalid
+        """
+        if not isinstance(config, dict):
+            raise ValueError("Config must be a dictionary")
+    
+        if not config.get("azure_credentials"):
+>           raise ValueError("Missing Azure credentials")
+E           ValueError: Missing Azure credentials
+
+src\core\plugins\azure_provider.py:36: ValueError
+___________________ ERROR at setup of test_delete_resource ____________________
+
+mock_config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    @pytest.fixture
+    def azure_provider(mock_config):
+        """Create an AzureProvider instance for testing."""
+>       return AzureProvider(config=mock_config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\core\plugins\tests\test_azure_provider.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\core\plugins\azure_provider.py:19: in __init__
+    self._validate_config(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.core.plugins.azure_provider.AzureProvider object at 0x00000204189939B0>
+config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    def _validate_config(self, config: dict) -> None:
+        """Validate the configuration dictionary.
+    
+        Args:
+            config (dict): Configuration to validate
+    
+        Raises:
+            ValueError: If configuration is invalid
+        """
+        if not isinstance(config, dict):
+            raise ValueError("Config must be a dictionary")
+    
+        if not config.get("azure_credentials"):
+>           raise ValueError("Missing Azure credentials")
+E           ValueError: Missing Azure credentials
+
+src\core\plugins\azure_provider.py:36: ValueError
+_________________ ERROR at setup of test_get_resource_metrics _________________
+
+mock_config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    @pytest.fixture
+    def azure_provider(mock_config):
+        """Create an AzureProvider instance for testing."""
+>       return AzureProvider(config=mock_config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\core\plugins\tests\test_azure_provider.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\core\plugins\azure_provider.py:19: in __init__
+    self._validate_config(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.core.plugins.azure_provider.AzureProvider object at 0x00000204189FC550>
+config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    def _validate_config(self, config: dict) -> None:
+        """Validate the configuration dictionary.
+    
+        Args:
+            config (dict): Configuration to validate
+    
+        Raises:
+            ValueError: If configuration is invalid
+        """
+        if not isinstance(config, dict):
+            raise ValueError("Config must be a dictionary")
+    
+        if not config.get("azure_credentials"):
+>           raise ValueError("Missing Azure credentials")
+E           ValueError: Missing Azure credentials
+
+src\core\plugins\azure_provider.py:36: ValueError
+__________________ ERROR at setup of test_get_resource_logs ___________________
+
+mock_config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    @pytest.fixture
+    def azure_provider(mock_config):
+        """Create an AzureProvider instance for testing."""
+>       return AzureProvider(config=mock_config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\core\plugins\tests\test_azure_provider.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\core\plugins\azure_provider.py:19: in __init__
+    self._validate_config(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.core.plugins.azure_provider.AzureProvider object at 0x00000204189FCD50>
+config = {'client_id': 'test-client-id', 'client_secret': 'test-client-secret', 'location': 'eastus', 'resource_group': 'test-resource-group', ...}
+
+    def _validate_config(self, config: dict) -> None:
+        """Validate the configuration dictionary.
+    
+        Args:
+            config (dict): Configuration to validate
+    
+        Raises:
+            ValueError: If configuration is invalid
+        """
+        if not isinstance(config, dict):
+            raise ValueError("Config must be a dictionary")
+    
+        if not config.get("azure_credentials"):
+>           raise ValueError("Missing Azure credentials")
+E           ValueError: Missing Azure credentials
+
+src\core\plugins\azure_provider.py:36: ValueError
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.13.3-final-0 _______________
+
+Name                                            Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------------------
+src\__init__.py                                     0      0   100%
+src\core\__init__.py                                0      0   100%
+src\core\ai\__init__.py                             0      0   100%
+src\core\ai\ai_optimizer.py                       107    107     0%   1-144
+src\core\engine\__init__.py                         0      0   100%
+src\core\engine\unified_engine.py                 110    110     0%   1-148
+src\core\exceptions.py                           1669      0   100%
+src\core\models.py                                 33      2    94%   38, 52
+src\core\plugins\__init__.py                        0      0   100%
+src\core\plugins\aws_provider.py                   36     36     0%   1-86
+src\core\plugins\azure_provider.py                 76     56    26%   20-21, 33, 38-43, 54-62, 70, 82, 98, 110-128, 136-156, 167-186, 206-216
+src\core\plugins\gcp_provider.py                   48     48     0%   2-148
+src\core\plugins\tests\__init__.py                  0      0   100%
+src\core\plugins\tests\test_azure_provider.py      79     57    28%   26-27, 31-33, 37-39, 43-44, 48-61, 65-77, 81-92, 96-107, 111-115, 119-129, 133-141
+-----------------------------------------------------------------------------
+TOTAL                                            2158    416    81%
+=========================== short test summary info ===========================
+ERROR src/core/plugins/tests/test_azure_provider.py::test_azure_provider_initialization - ValueError: Missing Azure credentials
+ERROR src/core/plugins/tests/test_azure_provider.py::test_validate_credentials - ValueError: Missing Azure credentials
+ERROR src/core/plugins/tests/test_azure_provider.py::test_validate_credentials_failure - ValueError: Missing Azure credentials
+ERROR src/core/plugins/tests/test_azure_provider.py::test_list_resources - ValueError: Missing Azure credentials
+ERROR src/core/plugins/tests/test_azure_provider.py::test_get_resource - ValueError: Missing Azure credentials
+ERROR src/core/plugins/tests/test_azure_provider.py::test_create_resource - ValueError: Missing Azure credentials
+ERROR src/core/plugins/tests/test_azure_provider.py::test_update_resource - ValueError: Missing Azure credentials
+ERROR src/core/plugins/tests/test_azure_provider.py::test_delete_resource - ValueError: Missing Azure credentials
+ERROR src/core/plugins/tests/test_azure_provider.py::test_get_resource_metrics - ValueError: Missing Azure credentials
+ERROR src/core/plugins/tests/test_azure_provider.py::test_get_resource_logs - ValueError: Missing Azure credentials
+============================= 10 errors in 0.55s ==============================

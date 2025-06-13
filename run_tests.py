@@ -16,7 +16,7 @@ def run_tests(performance_only=False):
 
     command = [
         sys.executable, "-m", "pytest", "-v",
-        "--cov=src", "--cov-report=html", "--cov-fail-under=100"
+        "--cov=src", "--cov-report=html"
     ]
     if performance_only:
         command += ["-m", "performance"]

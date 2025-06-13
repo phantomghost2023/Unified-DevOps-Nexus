@@ -8,15 +8,15 @@ Classifier: Intended Audience :: Developers
 Classifier: Topic :: Software Development :: Build Tools
 Classifier: Programming Language :: Python :: 3.8
 Requires-Python: >=3.8
-Requires-Dist: pyyaml>=6.0
-Requires-Dist: openai>=1.0.0
-Requires-Dist: pytest>=8.0.0
-Requires-Dist: pytest-cov>=6.0.0
-Requires-Dist: pytest-asyncio>=0.23.0
-Requires-Dist: pytest-mock>=3.14.0
-Requires-Dist: typing-extensions>=4.0.0
+License-File: LICENSE
+Requires-Dist: azure-identity>=1.12.0
+Requires-Dist: azure-mgmt-resource>=23.0.1
+Requires-Dist: azure-mgmt-monitor>=5.0.0
+Requires-Dist: pytest>=7.4.0
+Requires-Dist: python-dotenv>=1.0.0
 Dynamic: author
 Dynamic: classifier
+Dynamic: license-file
 Dynamic: requires-dist
 Dynamic: requires-python
 Dynamic: summary

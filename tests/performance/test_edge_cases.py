@@ -5,12 +5,13 @@ from typing import Dict, Any
 from core.ai.ai_optimizer import AIOptimizer
 from core.engine.unified_engine import UnifiedEngine
 from core.exceptions import ValidationError
+import pytest
 from tests.performance.helpers import generate_test_config
 import openai
 
 @pytest.fixture
 def ai_optimizer():
-    """Create AIOptimizer instance for testing"""
+    """Create AIOptimizer instance for testing."""
     return AIOptimizer(api_key="test_key")
 
 @pytest.fixture

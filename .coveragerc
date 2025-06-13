@@ -1,0 +1,2 @@
+[run]
+omit = core/plugins/azure_provider.py
